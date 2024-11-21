@@ -7,15 +7,41 @@ public class PlayerController : MonoBehaviour
 {
     PlayerInput playerInput;
     PlayerInput.MainActions input;
+    public Transform player;
 
     CharacterController controller;
     Animator animator;
     AudioSource audioSource;
 
+    [Header("Controls")]
+    public float sprintspeed;
+    public float jogSpeed;
+    public float currentSpeed = 12f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 3f;
+    public float defualtFOV;
+    public float sprintFOV;
+    public float FOVChangeSpeed;
+    public bool isSprinting;
+
+    [Header("Crouch")]
+    public float playerWidth;
+    public float currentPlayerHeight;
+    public float deflautPlayerHeight;
+    public float crouchPlayerHeight;
+    public float crouchSpeed;
+    public bool isCrouching;
+
+    [Header("KeyCodes")]
+    public KeyCode sprintKeyCode;
+    public KeyCode crouchKeyCode;
+    public KeyCode otherCrouchKeyCode;
+
     [Header("Controller")]
-    public float moveSpeed = 5;
-    public float gravity = -9.8f;
-    public float jumpHeight = 1.2f;
+
+    Vector3 velocity;
+
+
 
     Vector3 _PlayerVelocity;
 
@@ -28,10 +54,12 @@ public class PlayerController : MonoBehaviour
     float xRotation = 0f;
 
     void Awake()
-    { 
+    {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        deflautPlayerHeight = 1f;
 
         playerInput = new PlayerInput();
         input = playerInput.Main;
@@ -45,17 +73,62 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = controller.isGrounded;
 
+        if (Input.GetKey(sprintKeyCode))
+        {
+            currentSpeed = sprintspeed;
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, sprintFOV, FOVChangeSpeed * Time.deltaTime);
+        }
+        else
+        {
+            currentSpeed = jogSpeed;
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, defualtFOV, FOVChangeSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(crouchKeyCode) || Input.GetKey(otherCrouchKeyCode) && isGrounded == true)
+        {
+            currentPlayerHeight = Mathf.Lerp(currentPlayerHeight, crouchPlayerHeight, crouchSpeed * Time.deltaTime);
+            player.localScale = new Vector3(playerWidth, currentPlayerHeight, playerWidth);
+            isCrouching = true;
+        }
+        else
+        {
+            currentPlayerHeight = deflautPlayerHeight;
+            player.localScale = new Vector3(playerWidth, currentPlayerHeight, playerWidth);
+            isCrouching = false;
+        }
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        float x = Input.GetAxis("Horizontal") * currentSpeed;
+        float z = Input.GetAxis("Vertical") * currentSpeed;
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * currentSpeed * Time.deltaTime);
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && isGrounded && isCrouching == false)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+
         // Repeat Inputs
-        if(input.Attack.IsPressed())
+        if (input.Attack.IsPressed())
         { Attack(); }
 
         SetAnimations();
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     { MoveInput(input.Movement.ReadValue<Vector2>()); }
 
-    void LateUpdate() 
+    void LateUpdate()
     { LookInput(input.Look.ReadValue<Vector2>()); }
 
     void MoveInput(Vector2 input)
@@ -64,9 +137,9 @@ public class PlayerController : MonoBehaviour
         moveDirection.x = input.x;
         moveDirection.z = input.y;
 
-        controller.Move(transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
+        controller.Move(transform.TransformDirection(moveDirection) * currentSpeed * Time.deltaTime);
         _PlayerVelocity.y += gravity * Time.deltaTime;
-        if(isGrounded && _PlayerVelocity.y < 0)
+        if (isGrounded && _PlayerVelocity.y < 0)
             _PlayerVelocity.y = -2f;
         controller.Move(_PlayerVelocity * Time.deltaTime);
     }
@@ -84,22 +157,16 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime * sensitivity));
     }
 
-    void OnEnable() 
+    void OnEnable()
     { input.Enable(); }
 
     void OnDisable()
     { input.Disable(); }
 
-    void Jump()
-    {
-        // Adds force to the player rigidbody to jump
-        if (isGrounded)
-            _PlayerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
-    }
+
 
     void AssignInputs()
     {
-        input.Jump.performed += ctx => Jump();
         input.Attack.started += ctx => Attack();
     }
 
@@ -114,7 +181,7 @@ public class PlayerController : MonoBehaviour
 
     string currentAnimationState;
 
-    public void ChangeAnimationState(string newState) 
+    public void ChangeAnimationState(string newState)
     {
         // STOP THE SAME ANIMATION FROM INTERRUPTING WITH ITSELF //
         if (currentAnimationState == newState) return;
@@ -127,9 +194,9 @@ public class PlayerController : MonoBehaviour
     void SetAnimations()
     {
         // If player is not attacking
-        if(!attacking)
+        if (!attacking)
         {
-            if(_PlayerVelocity.x == 0 &&_PlayerVelocity.z == 0)
+            if (_PlayerVelocity.x == 0 && _PlayerVelocity.z == 0)
             { ChangeAnimationState(IDLE); }
             else
             { ChangeAnimationState(WALK); }
@@ -157,7 +224,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
-        if(!readyToAttack || attacking) return;
+        if (!readyToAttack || attacking) return;
 
         readyToAttack = false;
         attacking = true;
@@ -168,7 +235,7 @@ public class PlayerController : MonoBehaviour
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.PlayOneShot(swordSwing);
 
-        if(attackCount == 0)
+        if (attackCount == 0)
         {
             ChangeAnimationState(ATTACK1);
             attackCount++;
@@ -188,13 +255,13 @@ public class PlayerController : MonoBehaviour
 
     void AttackRaycast()
     {
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
-        { 
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, attackDistance, attackLayer))
+        {
             HitTarget(hit.point);
 
-            if(hit.transform.TryGetComponent<Actor>(out Actor T))
+            if (hit.transform.TryGetComponent<Actor>(out Actor T))
             { T.TakeDamage(attackDamage); }
-        } 
+        }
     }
 
     void HitTarget(Vector3 pos)
