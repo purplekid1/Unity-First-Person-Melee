@@ -133,8 +133,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     { MoveInput(input.Movement.ReadValue<Vector2>()); }
 
-    void LateUpdate()
-    { LookInput(input.Look.ReadValue<Vector2>()); }
+    void LateUpdate() => LookInput(input.Look.ReadValue<Vector2>());
 
     void MoveInput(Vector2 input)
     {
