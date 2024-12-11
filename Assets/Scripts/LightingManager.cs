@@ -18,13 +18,13 @@ public class LightingManager : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            //TimeOfDay += Time.deltaTime;
-            TimeOfDay %= 24; //Clamp between 0-24
-            UpdateLighting(TimeOfDay / 24f);
+            TimeOfDay += Time.deltaTime;
+            TimeOfDay %= 164; //Clamp between 0-24
+            UpdateLighting(TimeOfDay / 164f);
         }
         else
         {
-            UpdateLighting(TimeOfDay / 24f);
+            UpdateLighting(TimeOfDay / 164f);
         }
     }
 
