@@ -889,7 +889,11 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
+<<<<<<< Updated upstream
     m_Target: {x: -4.569081, y: 0.78900397, z: -0.17113124}
+=======
+    m_Target: {x: -0.1619871, y: -0.52313393, z: 4.4696035}
+>>>>>>> Stashed changes
     speed: 2
     m_Value: {x: -4.569081, y: 0.78900397, z: -0.17113124}
   m_RenderMode: 0
@@ -937,11 +941,19 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< Updated upstream
     m_Target: {x: 0.033216678, y: -0.7435379, z: 0.03709091, w: 0.66688746}
+=======
+    m_Target: {x: 0.1866996, y: -0.011476578, z: 0.0022272617, w: 0.982377}
+>>>>>>> Stashed changes
     speed: 2
     m_Value: {x: 0.03321557, y: -0.74351317, z: 0.037089676, w: 0.6668653}
   m_Size:
+<<<<<<< Updated upstream
     m_Target: 3.5309393
+=======
+    m_Target: 3.0310793
+>>>>>>> Stashed changes
     speed: 2
     m_Value: 3.5309393
   m_Ortho:
@@ -1264,10 +1276,17 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 51}
     m_SelectedIDs: 8ab80000
     m_LastClickedID: 47242
     m_ExpandedIDs: 0000000008b8000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 71}
+    m_SelectedIDs: 7cb00000
+    m_LastClickedID: 45180
+    m_ExpandedIDs: 0000000008b80000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
