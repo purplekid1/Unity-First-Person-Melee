@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c0cfa5491758d48925355de67d5ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 60
-  fovAngle: 0
+  fov: 180
+  fovAngle: 45
   alertStage: 0
   alertLevel: 0
 --- !u!195 &81174268
