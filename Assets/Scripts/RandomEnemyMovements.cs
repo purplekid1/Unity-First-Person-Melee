@@ -23,7 +23,7 @@ public class RandomMovement : MonoBehaviour
     {
         target = GameObject.Find("Player").transform;
 
-        if (Guard.alertLevel == 100)
+        if (Guard.alertLevel == 5)
         {
             agent.destination = target.position;
         }
