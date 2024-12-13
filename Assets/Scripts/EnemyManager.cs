@@ -59,13 +59,13 @@ public class EnemyManager : MonoBehaviour
             case AlertStage.Intrigued:
                 if (playerInFOV)
                 {
-<<<<<<< HEAD
+
                     alertLevel += 10f;
                     if (alertLevel >= 100)
-=======
+
                     alertLevel++;
                     if (alertLevel >= 5)
->>>>>>> 00f540eec192ae5c741921e3e50b07cd69426778
+
                     {
                         alertStage = AlertStage.Alerted;
                     }
