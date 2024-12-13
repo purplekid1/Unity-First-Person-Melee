@@ -23,7 +23,7 @@ public class RandomMovement : MonoBehaviour
     {
         target = GameObject.Find("Player").transform;
 
-        if (Guard.alertLevel == 100)
+        if (Guard.alertLevel == 5)
         {
             agent.destination = target.position;
         }
@@ -44,7 +44,7 @@ public class RandomMovement : MonoBehaviour
 
         Vector3 randomPoint = center + Random.insideUnitSphere * range; //random point in a sphere 
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas)) //documentation: https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
+        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas)) 
         {
             //the 1.0f is the max distance from the random point to a point on the navmesh, might want to increase if range is big
             //or add a for loop like in the documentation
