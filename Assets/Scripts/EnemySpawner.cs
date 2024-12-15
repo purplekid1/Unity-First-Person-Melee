@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject spawnee;
+    public GameObject spawneE;
     public bool stopSpawning = false;
     public float spawnTime;
     public float spawnDelay;
@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnObject()
     {
-        Instantiate(spawnee, transform.position, transform.rotation);
+        Instantiate(spawneE, transform.position, transform.rotation);
         if (stopSpawning)
         {
             CancelInvoke("SpawnObject");

@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 21864789}
   - component: {fileID: 21864788}
   - component: {fileID: 21864791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5931,6 +5931,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8907348936639570059}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1389618634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389618628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c0cfa5491758d48925355de67d5ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fov: 40
+  fovAngle: 360
+  alertStage: 0
+  alertLevel: 0
 --- !u!4 &1393023740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7372471363592420540, guid: a61f779380e8e2e4e92e5234e172e61c,
@@ -8237,7 +8253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1746426115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8801,7 +8817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50396e79dbdea846ab2ff30de9ae4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnee: {fileID: 1389618628}
+  spawneE: {fileID: 0}
   stopSpawning: 1
   spawnTime: 0
   spawnDelay: 0
@@ -9550,6 +9566,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2662448308818099711, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: f0323c83f57535b428809c0ec132dbce, type: 3}
     - target: {fileID: 4204548793487676072, guid: 4e0f2924ac3cb5549a874c975104007f,
         type: 3}
       propertyPath: target
@@ -9559,6 +9580,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: monsterrig 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254885402640443945, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: fov
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254885402640443945, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: alertStage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771577497214900915, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891170668212762800, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891170668212762800, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891170668212762800, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 8891170668212762800, guid: 4e0f2924ac3cb5549a874c975104007f,
         type: 3}
@@ -9610,10 +9661,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8891170668212762800, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8081736130560647690, guid: 4e0f2924ac3cb5549a874c975104007f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1389618634}
   m_SourcePrefab: {fileID: 100100000, guid: 4e0f2924ac3cb5549a874c975104007f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

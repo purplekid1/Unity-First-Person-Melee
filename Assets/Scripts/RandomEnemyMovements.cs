@@ -12,8 +12,8 @@ public class RandomMovement : MonoBehaviour
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
-
-    void Start()
+    
+    void StartAwake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
@@ -25,7 +25,9 @@ public class RandomMovement : MonoBehaviour
 
         if (Guard.alertLevel == 5)
         {
+
             agent.destination = target.position;
+
         }
         else if (agent.remainingDistance <= agent.stoppingDistance) //done with path
         {
@@ -37,7 +39,7 @@ public class RandomMovement : MonoBehaviour
             }
         }
 
-
+       
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
@@ -55,6 +57,6 @@ public class RandomMovement : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
-
+    
 
 }
