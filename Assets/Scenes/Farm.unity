@@ -13064,7 +13064,6 @@ Transform:
 --- !u!1001 &1773635323
 PrefabInstance:
   m_ObjectHideFlags: 0
-<<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
