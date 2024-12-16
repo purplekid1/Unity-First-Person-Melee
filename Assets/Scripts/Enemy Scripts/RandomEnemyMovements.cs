@@ -25,7 +25,8 @@ public class RandomMovement : MonoBehaviour
 
         if (Guard.alertLevel == 5)
         {
-            findPlayer();
+
+            agent.destination = target.position;
 
         }
         else if (agent.remainingDistance <= agent.stoppingDistance) //done with path
@@ -38,10 +39,7 @@ public class RandomMovement : MonoBehaviour
             }
         }
 
-        void findPlayer()
-        {
-            agent.destination = target.position;
-        }
+       
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
