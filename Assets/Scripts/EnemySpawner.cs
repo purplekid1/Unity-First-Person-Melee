@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnObject()
     {
-        Instantiate(spawneE, transform.position, transform.rotation);
+        global::System.Object value = Instantiate(spawneE, transform.position, transform.rotation);
         if (stopSpawning)
         {
             CancelInvoke("SpawnObject");
