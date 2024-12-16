@@ -8,6 +8,7 @@ public class RandomMovement : MonoBehaviour
     public NavMeshAgent agent;
     public Transform target;
     public EnemyManager Guard;
+    public detectionClose TC;
     public float range; //radius of sphere
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
@@ -16,21 +17,31 @@ public class RandomMovement : MonoBehaviour
     void StartAwake()
     {
         agent = GetComponent<NavMeshAgent>();
+        TC = transform.GetComponentInChildren<detectionClose>();
+        agent.speed = 5f;
     }
 
 
     void Update()
     {
+        movement();
+        detection();
+       
+    }
+
+    private void movement()
+    {
         target = GameObject.Find("Player").transform;
 
-        if (Guard.alertLevel == 5)
+        if (Guard.alertLevel == 100)
         {
-
+            agent.speed = 35f;
             agent.destination = target.position;
 
         }
         else if (agent.remainingDistance <= agent.stoppingDistance) //done with path
         {
+            agent.speed = 5f;
             Vector3 point;
             if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
             {
@@ -39,8 +50,19 @@ public class RandomMovement : MonoBehaviour
             }
         }
 
-       
     }
+    
+    private void detection()
+    {
+        if (TC.touchingCollider)
+        {
+            Guard.alertLevel = 100;
+        }
+    }
+    
+
+
+
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
 

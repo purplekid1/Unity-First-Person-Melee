@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     [Range(0, 360)] public float fovAngle; // in degrees
 
     public AlertStage alertStage;
-    [Range(0, 5)] public float alertLevel; // 0: Peaceful, 100: Alerted
+    [Range(0, 100)] public float alertLevel; // 0: Peaceful, 100: Alerted
 
     private void Awake()
     {
@@ -60,11 +60,9 @@ public class EnemyManager : MonoBehaviour
                 if (playerInFOV)
                 {
 
-                    alertLevel += 10f;
+                    
+                    alertLevel += 10;
                     if (alertLevel >= 100)
-
-                    alertLevel++;
-                    if (alertLevel >= 5)
 
                     {
                         alertStage = AlertStage.Alerted;
