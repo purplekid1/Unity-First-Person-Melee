@@ -323,7 +323,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1382913450}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+
 --- !u!224 &42165156 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2408873723327107831, guid: 1b591563a3b04f34db6f0f903399f0dc,
@@ -336,8 +336,8 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1572116312}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> parent of 30a3c0c (pause menu work)
+
+
 --- !u!1 &61351527
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,11 +474,10 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61351527}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
->>>>>>> 30a3c0c45fd1c2d13c766cfbadde74ca35db4456
-=======
->>>>>>> parent of 30a3c0c (pause menu work)
+
+
+
+
 --- !u!1001 &66094268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13115,7 +13114,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785226512}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
+
 --- !u!1 &1785666785
 GameObject:
   m_ObjectHideFlags: 0
@@ -13226,7 +13225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 1
-=======
+
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
@@ -13352,9 +13351,7 @@ MonoBehaviour:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb18fc3b7a41794a800bc4daaca1782, type: 3}
->>>>>>> 30a3c0c45fd1c2d13c766cfbadde74ca35db4456
-=======
->>>>>>> parent of 30a3c0c (pause menu work)
+
 --- !u!4 &1805179333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1242234963278531772, guid: 39a7e1d772ee20a4498f0616cd180c1c,
@@ -13482,18 +13479,17 @@ MonoBehaviour:
   stopSpawning: 1
   spawnTime: 0
   spawnDelay: 0
-<<<<<<< HEAD
+
 --- !u!224 &1838625762 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2408873723327107831, guid: 1b591563a3b04f34db6f0f903399f0dc,
     type: 3}
   m_PrefabInstance: {fileID: 1894515706}
   m_PrefabAsset: {fileID: 0}
-=======
+
   spawnDelay: 1
->>>>>>> 30a3c0c45fd1c2d13c766cfbadde74ca35db4456
-=======
->>>>>>> parent of 30a3c0c (pause menu work)
+
+
 --- !u!4 &1850836252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3627923716577963945, guid: 305607abdee0b2246ad1fe5ccbbe700d,
@@ -14987,14 +14983,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Avatar
       value: 
-<<<<<<< HEAD
+
       objectReference: {fileID: 0}
-=======
+
       objectReference: {fileID: 9000000, guid: aebc8785f4e52bf43ad4c52092fa7710, type: 3}
->>>>>>> 30a3c0c45fd1c2d13c766cfbadde74ca35db4456
-=======
+
       objectReference: {fileID: 9000000, guid: f0323c83f57535b428809c0ec132dbce, type: 3}
->>>>>>> parent of 30a3c0c (pause menu work)
+
     - target: {fileID: 4204548793487676072, guid: 4e0f2924ac3cb5549a874c975104007f,
         type: 3}
       propertyPath: target
