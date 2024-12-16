@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false;
 
     public GameObject pauseMenu;
+    public GameObject book;
     public PlayerController playerData;
 
     // Start is called before the first frame update
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
                 isPaused = true;
 
                 pauseMenu.SetActive(true);
+                book.SetActive(true);
+
 
                 Time.timeScale = 0;
 
@@ -46,8 +49,9 @@ public class GameManager : MonoBehaviour
         isPaused = false;
 
         pauseMenu.SetActive(false);
+        book.SetActive(false);
 
-        Time.timeScale = 1;
+        Time.timeScale = 0;
 
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
