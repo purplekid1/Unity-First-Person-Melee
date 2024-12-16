@@ -323,7 +323,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1382913450}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
 --- !u!224 &42165156 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2408873723327107831, guid: 1b591563a3b04f34db6f0f903399f0dc,
@@ -13562,7 +13561,6 @@ MonoBehaviour:
   spawneE: {fileID: 1389618628}
   stopSpawning: 1
   spawnTime: 0
-<<<<<<< HEAD
   spawnDelay: 0
 --- !u!224 &1838625762 stripped
 RectTransform:
@@ -15066,7 +15064,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Avatar
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 0}
 =======
       objectReference: {fileID: 9000000, guid: aebc8785f4e52bf43ad4c52092fa7710, type: 3}
