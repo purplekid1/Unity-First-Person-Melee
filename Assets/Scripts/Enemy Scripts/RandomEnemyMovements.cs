@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class RandomMovement : MonoBehaviour
     public EnemyManager Guard;
     public detectionClose TC;
     public float range; //radius of sphere
+    public bool Running;
+    public bool Walking;
 
     public Transform centrePoint; //centre of the area the agent wants to move around in
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
@@ -19,6 +22,8 @@ public class RandomMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         TC = transform.GetComponentInChildren<detectionClose>();
         agent.speed = 5f;
+        Running = false;
+        Walking = false;
     }
 
 
@@ -35,18 +40,23 @@ public class RandomMovement : MonoBehaviour
 
         if (Guard.alertLevel == 100)
         {
+            Walking = false;
+            Running = true;
             agent.speed = 35f;
             agent.destination = target.position;
 
         }
         else if (agent.remainingDistance <= agent.stoppingDistance) //done with path
         {
-            agent.speed = 5f;
+            
             Vector3 point;
             if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
             {
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
                 agent.SetDestination(point);
+                Running = false;
+                Walking = true;
+                agent.speed = 5f;
             }
         }
 
@@ -56,6 +66,8 @@ public class RandomMovement : MonoBehaviour
     {
         if (TC.touchingCollider)
         {
+            Walking = false;
+            Running = true;
             Guard.alertLevel = 100;
         }
     }
