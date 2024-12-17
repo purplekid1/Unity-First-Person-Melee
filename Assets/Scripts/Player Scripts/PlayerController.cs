@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
     public int health = 10;
     public int healthPickUp = 5; // For future referance
 
+    [Header("Player Inventory")]
+    public Inventory inventory;
+
     Vector3 velocity;
 
 
@@ -130,6 +133,14 @@ public class PlayerController : MonoBehaviour
         SetAnimations();
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        if (item != null) 
+        {
+         inventory.AddItem(item);
+        }
+    }
     void FixedUpdate()
     { MoveInput(input.Movement.ReadValue<Vector2>()); }
 

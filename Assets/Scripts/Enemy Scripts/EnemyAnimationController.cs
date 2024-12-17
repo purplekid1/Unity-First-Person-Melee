@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.Android;
+using UnityEngine.InputSystem;
 
 public class EnemyAnimationController : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class EnemyAnimationController : MonoBehaviour
         if (agent.speed >= 0.01f && agent.speed !>= 10f && agent.remainingDistance > agent.stoppingDistance) // Moving
         {
             animator.SetBool("IsWalking", true);
-            animator.SetBool("IsRunning", false);
+            //animator.SetBool("IsRunning", false);
         }
         else if (agent.speed >= 10f && agent.remainingDistance > agent.stoppingDistance)// Idle
         {
