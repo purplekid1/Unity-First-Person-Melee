@@ -16,7 +16,7 @@ public class EnemyAnimationController : MonoBehaviour
     private void Update()
     {
         // Check the velocity of the NavMeshAgent
-        if (agent.speed >= 0.01f && agent.speed !>= 10f && agent.remainingDistance > agent.stoppingDistance) // Moving
+        if (agent.acceleration >= 0.01f && agent.acceleration !>= 10f && agent.remainingDistance > agent.stoppingDistance) // Moving
         {
             animator.SetBool("IsWalking", true);
             //animator.SetBool("IsRunning", false);

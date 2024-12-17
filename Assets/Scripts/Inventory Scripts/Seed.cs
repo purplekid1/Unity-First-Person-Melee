@@ -13,5 +13,8 @@ public class Seed : InventoryItemBase
         }
     }
 
-
+    public override void OnUse()
+    {
+        base.OnUse();
+    }
 }

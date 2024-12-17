@@ -19,6 +19,11 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
         get { return _Image; }
     }
 
+    public virtual void OnUse()
+    {
+
+    }
+
     public virtual void OnPickup()
     {
         gameObject.SetActive(false);

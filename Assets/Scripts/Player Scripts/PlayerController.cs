@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Inventory")]
     public Inventory inventory;
+    public GameObject Hand;
 
     Vector3 velocity;
 
@@ -60,6 +61,23 @@ public class PlayerController : MonoBehaviour
     public float sensitivity;
 
     float xRotation = 0f;
+
+    public void Start()
+    {
+        inventory.ItemUsed += Inventory_ItemUsed;
+    }
+
+    private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
+    {
+        IInventoryItem item = e.Item;
+
+        //do something with item  put into hand 
+        GameObject goItem = (item as MonoBehaviour).gameObject;
+        goItem.SetActive(true);
+
+        goItem.transform.parent = Hand.transform;
+        goItem.transform.position = Hand.transform.position;
+    }
 
     void Awake()
     {
