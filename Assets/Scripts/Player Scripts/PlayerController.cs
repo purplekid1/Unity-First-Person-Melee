@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     PlayerInput.MainActions input;
     public Transform player;
+    
 
     CharacterController controller;
     Animator animator;
     AudioSource audioSource;
+    
 
     [Header("Controls")]
     public float sprintspeed;
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
+        
 
         deflautPlayerHeight = 1f;
 
@@ -97,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            currentPlayerHeight = deflautPlayerHeight;
+            currentPlayerHeight = Mathf.Lerp(currentPlayerHeight, deflautPlayerHeight, crouchSpeed * Time.deltaTime);
             player.localScale = new Vector3(playerWidth, currentPlayerHeight, playerWidth);
             isCrouching = false;
         }
@@ -106,10 +109,12 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
+        
+
         float x = Input.GetAxis("Horizontal") * currentSpeed;
         float z = Input.GetAxis("Vertical") * currentSpeed;
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * z + transform.forward * x;
 
         controller.Move(move * currentSpeed * Time.deltaTime);
 
