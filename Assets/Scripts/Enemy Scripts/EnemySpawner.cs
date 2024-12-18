@@ -16,8 +16,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        dnc = GameObject.Find("Day Night Cycle").GetComponent<DayNightCycle>();
         enemiesSpawned = 0;
-        dnc = gameObject.GetComponent<DayNightCycle>();
+        
     }
 
 

@@ -13,7 +13,6 @@ public enum AlertStage
 
 public class EnemyManager : MonoBehaviour
 {
-    public bool jumpscare;
     public float fov;
     [Range(0, 360)] public float fovAngle; // in degrees
 
@@ -24,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     {
         alertStage = AlertStage.Peaceful;
         alertLevel = 5;
-        jumpscare = false; 
+
     }
 
     private void Update()
@@ -84,9 +83,6 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        jumpscare = true;
-    }
+
 
 }

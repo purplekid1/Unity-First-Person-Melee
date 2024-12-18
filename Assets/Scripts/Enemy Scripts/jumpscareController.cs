@@ -9,7 +9,6 @@ public class jumpscareController : MonoBehaviour
     public EnemyManager enemyManager;
     public Animator animator;
     private Vector3 position;
-    public GameObject JP;
 
 
     private void Start()
@@ -22,14 +21,6 @@ public class jumpscareController : MonoBehaviour
 
     private void Update()
     {
-        position = jumpscare.transform.position;
 
-        position.y = JP.transform.position.y;
-        position.x = JP.transform.position.x;
-        if (enemyManager.jumpscare)
-        {
-            jumpscare.SetActive(true);
-            animator.SetBool("jumpscare", true);
-        }
     }
 }
