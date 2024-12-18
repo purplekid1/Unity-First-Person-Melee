@@ -15,6 +15,8 @@ public interface IInventoryItem
     void OnDrop();
 
     void OnUse();
+
+    InventorySlot Slot { get; set; }
 }
 
 public class InventoryEventArgs : EventArgs

@@ -45,6 +45,11 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
         }
     }
 
+    public InventorySlot Slot
+    {
+        get; set;
+    }
+
     public Vector3 PickPosition;
     public Vector3 PickRotation;
 
