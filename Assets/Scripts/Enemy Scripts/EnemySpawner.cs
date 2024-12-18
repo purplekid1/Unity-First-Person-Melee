@@ -10,36 +10,41 @@ public class EnemySpawner : MonoBehaviour
     public bool stopSpawning = false;
     public float spawnTime;
     public float spawnDelay;
-    public float enemiesSpawned = 0;
-
+    public float enemiesSpawned;
+    public float allowedenemy;
+    
 
     private void Start()
     {
-        stopSpawning = true;
-        
-        dnc = GameObject.Find("TimeManagement").GetComponentInChildren<DayNightCycle>();
+        enemiesSpawned = 0;
+        dnc = gameObject.GetComponent<DayNightCycle>();
     }
 
 
     private void FixedUpdate()
     {
-        if (dnc.timeOfDay <= 0.8f && dnc.timeOfDay >= 0.2f)
-        {
-            stopSpawning = true;
-        }
-        else
+        if (dnc.timeOfDay > 0.8f || dnc.timeOfDay < 0.2f)
         {
             stopSpawning = false;
-            if (enemiesSpawned >= 1f)
+            if (enemiesSpawned >= 1)
             {
+                while (enemiesSpawned > 1)
+                    Destroy(spawneE);
                 stopSpawning = true;
-            } 
-            else
+            }
+            else if ( enemiesSpawned < 1)
             {
                 InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
                 enemiesSpawned++;
+                Debug.Log("spawned");
             }
-            
+
+        }
+        else
+        {
+            stopSpawning = true;
+            while (enemiesSpawned > 0)
+                Destroy(spawneE);
         }
 
     }

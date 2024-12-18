@@ -26,7 +26,7 @@ public class DayNightCycle : MonoBehaviour
     private Text clockText;
     [SerializeField]
     [Range(0f, 1f)]
-    private float _timeOfDay;
+    public float _timeOfDay;
     public float timeOfDay
     {
         get
@@ -35,7 +35,7 @@ public class DayNightCycle : MonoBehaviour
         }
     }
     [SerializeField]
-    private int _dayNumber = 0; //tracks the days passed
+    private int _dayNumber = 1; //tracks the days passed
     public int dayNumber
     {
         get
