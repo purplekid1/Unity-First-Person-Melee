@@ -293,7 +293,7 @@ public class PlayerController : MonoBehaviour
     // ANIMATIONS //
     // ---------- //
 
-    public const string IDLE = "Idle";
+    public const string IDLE = "Axeidle";
     public const string WALK = "Walk";
     public const string ATTACK1 = "Attack 1";
     public const string ATTACK2 = "Attack 2";
