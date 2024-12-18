@@ -148,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02939a3099830c5409b2ef02d1a17ad2,
         type: 3}
       propertyPath: m_Name
-      value: monsterrig 1 1
+      value: Monster
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02939a3099830c5409b2ef02d1a17ad2,
         type: 3}
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c0cfa5491758d48925355de67d5ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpscare: 0
   fov: 400
   fovAngle: 90
   alertStage: 0
@@ -273,7 +274,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
