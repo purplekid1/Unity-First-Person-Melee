@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
         GameObject goItem = (mCurrentItem as MonoBehaviour).gameObject;
 
         inventory.RemoveItem(mCurrentItem);
-        Rigidbody rb = goItem.GetComponent<Rigidbody>();
+        Rigidbody rb = goItem.AddComponent<Rigidbody>();
         rb.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
 
         Invoke("DoDropItem", 0.25f);
@@ -239,13 +239,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveInput(input.Movement.ReadValue<Vector2>());
-
         if (mCurrentItem != null && Input.GetKeyDown(KeyCode.Q))
         {
             DropCurrentItem();
          
 ;       }
+
+        MoveInput(input.Movement.ReadValue<Vector2>());
     }
 
     void LateUpdate() => LookInput(input.Look.ReadValue<Vector2>());
