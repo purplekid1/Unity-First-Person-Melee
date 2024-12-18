@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class jumpscare : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject Jumpscare;
+    public AudioSource audioSource;
+
+    private void Start()
     {
-        
+        Jumpscare.SetActive(false);
+        Jumpscare = GameObject.Find("Jumpscare");
+        audioSource = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            Jumpscare.SetActive(true);
+            audioSource.Play();
+            StartCoroutine(DisableJP());
+        } 
+    }
+    IEnumerator DisableJP()
+    {
+        yield return new WaitForSeconds(1);
+        Jumpscare.SetActive(false);
     }
 }

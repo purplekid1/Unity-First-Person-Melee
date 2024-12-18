@@ -23,26 +23,12 @@ public class EnemyAnimationController : MonoBehaviour
 
         // Check the velocity of the NavMeshAgent
 
-        if (agent.acceleration >= 0.01f && agent.acceleration !>= 10f && agent.remainingDistance > agent.stoppingDistance) // Moving
-
-        if (RM.Running) // Running
-
+        if (agent.velocity.sqrMagnitude >= 0.01f && agent.remainingDistance > agent.stoppingDistance) // Moving
         {
             animator.SetBool("IsWalking", true);
-
-            animator.SetBool("IsRunning", true);
-
-            //animator.SetBool("IsRunning", false);
-
-        }
-        else if (RM.Walking)// Walking
-        {
-            animator.SetBool("IsWalking", false);
-            animator.SetBool("IsRunning", true) ;
         }
         else // Idle
         {
-            animator.SetBool("IsWalking", false);
             animator.SetBool("IsWalking", false);
         }
     }
