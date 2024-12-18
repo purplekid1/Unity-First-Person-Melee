@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
     PlayerInput playerInput;
     PlayerInput.MainActions input;
     public Transform player;
-    
+
 
     CharacterController controller;
     Animator animator;
     AudioSource audioSource;
-    
+
 
     [Header("Controls")]
     public float sprintspeed;
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
-        
+
 
         deflautPlayerHeight = 1f;
 
@@ -130,10 +130,10 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
-        
 
-        float x = Input.GetAxis("Horizontal") * currentSpeed;
-        float z = Input.GetAxis("Vertical") * currentSpeed;
+
+        float z = Input.GetAxis("Horizontal") * currentSpeed;
+        float x = Input.GetAxis("Vertical") * currentSpeed;
 
         Vector3 move = transform.right * z + transform.forward * x;
 
@@ -159,9 +159,9 @@ public class PlayerController : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-        if (item != null) 
+        if (item != null)
         {
-         inventory.AddItem(item);
+            inventory.AddItem(item);
         }
     }
     void FixedUpdate()
