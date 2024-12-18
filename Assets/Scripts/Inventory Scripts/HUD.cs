@@ -7,6 +7,8 @@ public class HUD : MonoBehaviour
 {
     public Inventory Inventory;
 
+    public GameObject MessagePanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,4 +56,17 @@ public class HUD : MonoBehaviour
             }
         }
     }
+
+    public void OpenMessagePanel(string text)
+    {
+        MessagePanel.SetActive(true);
+
+        // set text on other message blocks later
+    }
+
+    public void CloseMessagePanel()
+    {
+        MessagePanel.SetActive(false);
+    }
+
 }

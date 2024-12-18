@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Inventory")]
     public Inventory inventory;
     public GameObject Hand;
+    public HUD Hud;
 
     Vector3 velocity;
 
@@ -67,18 +68,32 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         inventory.ItemUsed += Inventory_ItemUsed;
+        inventory.ItemRemoved += Inventory_ItemRemoved;
+    }
+
+    private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
+    {
+        IInventoryItem item = e.Item;
+
+
+        GameObject goItem = (item as MonoBehaviour).gameObject;
+        goItem.SetActive(true);
+
+        goItem.transform.parent = null;
     }
 
     private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
     {
         IInventoryItem item = e.Item;
 
-        //do something with item  put into hand 
+        
         GameObject goItem = (item as MonoBehaviour).gameObject;
         goItem.SetActive(true);
 
         goItem.transform.parent = Hand.transform;
-        goItem.transform.position = Hand.transform.position;
+
+        mCurrentItem = e.Item;
+      
     }
 
     void Awake()
@@ -98,8 +113,20 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
+
+
+   
+
     void Update()
     {
+
+        if ( mItemToPickup != null && Input.GetKeyDown(KeyCode.E))
+        {
+            inventory.AddItem(mItemToPickup);
+            mItemToPickup.OnPickup();
+            Hud.CloseMessagePanel();
+        }
+
         isGrounded = controller.isGrounded;
 
         if (Input.GetKey(sprintKeyCode))
@@ -156,16 +183,70 @@ public class PlayerController : MonoBehaviour
         SetAnimations();
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private IInventoryItem mItemToPickup = null;
+    private void OnTriggerEnter(Collider other)
     {
-        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        IInventoryItem item = other.GetComponent<IInventoryItem>();
         if (item != null)
         {
-            inventory.AddItem(item);
+
+            if (mLockPickup) return;
+
+            mItemToPickup = item;
+
+            //inventory.AddItem(item);
+            //item.OnPickup();
+
+            Hud.OpenMessagePanel("");
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IInventoryItem item = other.GetComponent<IInventoryItem>();
+        if (item != null)
+        {
+            Hud.CloseMessagePanel();
+            mItemToPickup = null;
+        }
+    }
+
+
+    private IInventoryItem mCurrentItem = null;
+
+    private bool mLockPickup = false;
+   private void  DropCurrentItem()
+   {
+        mLockPickup = true;
+
+        GameObject goItem = (mCurrentItem as MonoBehaviour).gameObject;
+
+        inventory.RemoveItem(mCurrentItem);
+        Rigidbody rb = goItem.GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 2.0f, ForceMode.Impulse);
+
+        Invoke("DoDropItem", 0.25f);
+   }
+
+    public void DoDropItem()
+    {
+        mLockPickup = false;
+
+        Destroy((mCurrentItem as MonoBehaviour).GetComponent<Rigidbody>());
+
+        mCurrentItem = null;
+    }
+
     void FixedUpdate()
-    { MoveInput(input.Movement.ReadValue<Vector2>()); }
+    {
+        MoveInput(input.Movement.ReadValue<Vector2>());
+
+        if (mCurrentItem != null && Input.GetKeyDown(KeyCode.Q))
+        {
+            DropCurrentItem();
+         
+;       }
+    }
 
     void LateUpdate() => LookInput(input.Look.ReadValue<Vector2>());
 

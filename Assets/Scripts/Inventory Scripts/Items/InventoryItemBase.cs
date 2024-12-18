@@ -1,6 +1,9 @@
+using UnityEditor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class InventoryItemBase : MonoBehaviour, IInventoryItem
 {
@@ -21,7 +24,8 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
 
     public virtual void OnUse()
     {
-
+        transform.localPosition = PickPosition;
+        transform.localEulerAngles = PickRotation;
     }
 
     public virtual void OnPickup()
@@ -37,6 +41,13 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
         {
             gameObject.SetActive(true);
             gameObject.transform.position = hit.point;
+            gameObject.transform.eulerAngles = DropRotation;
         }
     }
+
+    public Vector3 PickPosition;
+    public Vector3 PickRotation;
+
+    public Vector3 DropRotation;
+
 }
