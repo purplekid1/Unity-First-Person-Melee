@@ -9,7 +9,7 @@ public class ChangeScene : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(0);
         }
 
     }
