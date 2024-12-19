@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 while (enemiesSpawned > 1)
                     Destroy(spawneE);
-                stopSpawning = true;
+                    stopSpawning = true;
             }
             else if ( enemiesSpawned < 1)
             {

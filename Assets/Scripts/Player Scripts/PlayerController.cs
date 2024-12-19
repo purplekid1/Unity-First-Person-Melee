@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
     public KeyCode otherCrouchKeyCode;
 
     [Header("Player Stats")]
-    public bool takenDamage = false;
     public float damageCoolDown = 0.5f;
     public int maxHealth = 5;
     public int health = 10;
@@ -236,6 +235,23 @@ public class PlayerController : MonoBehaviour
 
         mCurrentItem = null;
     }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        StartCoroutine(RedRing(GameObject.Find("HUD").transform.Find("RedRing").GetComponent<SpriteRenderer>()));
+    }
+    private IEnumerator RedRing(SpriteRenderer sr)
+    {
+        Color color = Color.white;
+        while (color.a > 0)
+        {
+            color.a -= Time.deltaTime;
+            sr.color = color;
+            yield return null;
+        }
+    }
+
 
     void FixedUpdate()
     {
