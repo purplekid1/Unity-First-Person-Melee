@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class jumpscare : MonoBehaviour
 {
-    public GameObject Jumpscare;
+    public GameObject JumpscareImg;
     public AudioSource audioSource;
 
     private void Start()
     {
-        Jumpscare.SetActive(false);
-        Jumpscare = GameObject.Find("Jumpscare");
+        JumpscareImg = GameObject.Find("HUD").transform.Find("JumpscareImg").gameObject;
+        JumpscareImg.SetActive(false);
         audioSource = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 
@@ -18,7 +18,8 @@ public class jumpscare : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Jumpscare.SetActive(true);
+            Debug.Log("Jumpscare");
+            JumpscareImg.SetActive(true);
             audioSource.Play();
             StartCoroutine(DisableJP());
         } 
@@ -26,6 +27,6 @@ public class jumpscare : MonoBehaviour
     IEnumerator DisableJP()
     {
         yield return new WaitForSeconds(1);
-        Jumpscare.SetActive(false);
+        JumpscareImg.SetActive(false);
     }
 }
