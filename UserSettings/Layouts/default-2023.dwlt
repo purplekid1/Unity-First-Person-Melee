@@ -38,7 +38,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 1920
+    x: 0
     y: 43
     width: 1920
     height: 997
@@ -622,7 +622,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 256}
     m_SelectedIDs: 82bb0000
     m_LastClickedID: 48002
+<<<<<<< Updated upstream
     m_ExpandedIDs: 
+=======
+    m_ExpandedIDs: 000000005abc00005cbc00005ebc000060bc000062bc000064bc000066bc0000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -651,7 +655,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 
+=======
+    m_ExpandedIDs: 000000005abc00005cbc00005ebc000060bc000062bc000064bc000066bc0000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1219,7 +1227,11 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
+<<<<<<< Updated upstream
     m_Target: {x: 74.40672, y: -17.939566, z: 15.166597}
+=======
+    m_Target: {x: 320.2652, y: 95.98802, z: -324.374}
+>>>>>>> Stashed changes
     speed: 2
     m_Value: {x: -0.51771545, y: 12.331836, z: 19.603422}
   m_RenderMode: 0
@@ -1267,11 +1279,19 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< Updated upstream
     m_Target: {x: 0.1197096, y: 0.7136226, z: -0.12552965, w: 0.6789479}
     speed: 2
     m_Value: {x: 0.05668779, y: -0.3112802, z: -0.01858882, w: -0.94855577}
   m_Size:
     m_Target: 52.3946
+=======
+    m_Target: {x: -0.12300032, y: 0.30438873, z: 0.039671738, w: 0.9437418}
+    speed: 2
+    m_Value: {x: 0.05668779, y: -0.3112802, z: -0.01858882, w: -0.94855577}
+  m_Size:
+    m_Target: 35.70756
+>>>>>>> Stashed changes
     speed: 2
     m_Value: 11.730938
   m_Ortho:

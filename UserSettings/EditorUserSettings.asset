@@ -27,6 +27,7 @@ EditorUserSettings:
       value: 01570c560107080f5d58597b11740a444715487e7a7c7064782d1931bab96461
       flags: 0
     RecentlyUsedSceneGuid-7:
+<<<<<<< Updated upstream
       value: 0155025e010c5a5d0b085875127a59444215407c797e22602c281864e7b46561
       flags: 0
     RecentlyUsedSceneGuid-8:
@@ -34,6 +35,12 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-9:
       value: 5104575050000c0f5c56087a44770b4440161c792d7b7164792f4e60b7b76168
+=======
+      value: 5104575050000c0f5c56087a44770b4440161c792d7b7164792f4e60b7b76168
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 515751535056595a0b5c087a43715944444f4878742924657f2a4a61b1b0636c
+>>>>>>> Stashed changes
       flags: 0
     lightmappingBakingProfile:
       value: 51
