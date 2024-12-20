@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider Other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (Other.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
 
     }
