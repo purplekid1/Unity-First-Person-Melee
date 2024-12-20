@@ -8,16 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/MainMenu.unity
     guid: bf80d2a40659a7541b0464645ddb8909
-  - enabled: 0
-    path: Assets/Scenes/Farm Scenes/FarmHouse.unity
-    guid: 25c655e418d844446ad3a3744f335750
   - enabled: 1
     path: Assets/Scenes/Farm Scenes/FarmHouse.unity
     guid: 138ca5406fd1e274480c2a88bf02f2a8
   - enabled: 1
     path: Assets/Scenes/Farm Scenes/Farm.unity
     guid: 2fe55c0af2d832f428028ab52c723074
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test Scenes/Test.unity
     guid: 5209f645a6bdc834e9b70a081d112cdc
   m_configObjects: {}
