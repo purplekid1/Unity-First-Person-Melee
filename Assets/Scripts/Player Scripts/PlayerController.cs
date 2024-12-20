@@ -51,12 +51,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Hand;
     public HUD Hud;
 
-    [Header("Dialogue")]
-    public DailogueStart dialogueStart;
-    public Transform lockPosition;
-    public bool isCameraLocked = false;
-    private bool isLocked = false;
-
+   
     Vector3 velocity;
 
 
@@ -77,15 +72,7 @@ public class PlayerController : MonoBehaviour
         inventory.ItemRemoved += Inventory_ItemRemoved;
     }
 
-    public void LockPlayerControl()
-    {
-        isLocked = true; // Lock player and camera control
-    }
-
-    public void UnlockPlayerControl()
-    {
-        isLocked = false; // Unlock player and camera control
-    }
+    
 
     private void Inventory_ItemRemoved(object sender, InventoryEventArgs e)
     {
@@ -135,11 +122,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isLocked)
-        {
-            // Don't process input when locked
-            return;
-        }
+      
         if ( mItemToPickup != null && Input.GetKeyDown(KeyCode.E))
         {
             inventory.AddItem(mItemToPickup);
