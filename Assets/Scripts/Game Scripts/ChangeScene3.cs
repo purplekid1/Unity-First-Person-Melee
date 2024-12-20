@@ -9,7 +9,7 @@ public class ChangeScene3 : MonoBehaviour
     {
         if (Other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
 
     }
