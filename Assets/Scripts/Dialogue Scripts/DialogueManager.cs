@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    
+
 
     public Text nameText;
     public Text dialogueText;
@@ -19,25 +22,28 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+   
+
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOpen", true);
 
         nameText.text = dialogue.name;
 
-        sentences.Clear();
+            sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
 
-        DisplayNextSentence();
-
+            DisplayNextSentence();
+        
     }
 
     public void DisplayNextSentence()
     {
+
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -51,8 +57,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence ( string sentence)
     {
-        string[] temp = sentence.Split("\n"); // split string by line break
-        nameText.text += temp[0];
+        dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;

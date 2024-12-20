@@ -1,18 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class DailogueStart : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public GameObject dailogueCanvas;
+
+    public PlayerController playerController;
+
+    public DialogueTrigger dialogueTrigger;
+
+    public DialogueManager dialogueManager;
+
+    public Camera cam;
+
+   
+
+    private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == ("Player"))
+        {
+            dailogueCanvas.SetActive(true);
+            
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            dialogueTrigger.TriggerDialogue();
+           
+
+
+        }
+    }
+
+    
+
+    private void OnTriggerExit(Collider other)
+    {
+        dailogueCanvas.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+
 }
