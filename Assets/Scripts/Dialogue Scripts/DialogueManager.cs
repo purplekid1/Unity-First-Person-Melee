@@ -51,7 +51,8 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence ( string sentence)
     {
-        dialogueText.text = "";
+        string[] temp = sentence.Split("\n"); // split string by line break
+        nameText.text += temp[0];
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
