@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    
-
-
     public Text nameText;
     public Text dialogueText;
 
@@ -16,16 +13,11 @@ public class DialogueManager : MonoBehaviour
 
     public Queue<string> sentences;
 
-    public Queue<string> useSentences;
-
-    public int scentenceTracker;
-
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
-        
-        useSentences = new Queue<string>();
+
     }
 
    
@@ -34,38 +26,44 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", true);
 
-        useSentences.Clear();
+        sentences.Clear();
 
         nameText.text = dialogue.name;
 
-            //sentences.Clear();
+        //set the starting sentence before we can go to next sentence
+        //dialogueText.text = dialogue.sentences[0];
 
-            foreach (string sentence in dialogue.sentences)
-            {
-               
-                sentences.Enqueue(sentence);
-            }
+        //sentences.Clear();
 
-            DisplayNextSentence();
+        foreach (string sentence in dialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+            Debug.Log("Enqueing dialouge to play... Count:"+ sentences.Count);
+        }
+        
+        //go to the first sentence without showing last dialogue
+
+        DisplayNextSentence();
         
     }
 
     public void DisplayNextSentence()
     {
 
-        if (sentences.Count == useSentences.Count)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
         string sentence = sentences.Dequeue();
-        useSentences.Enqueue(sentence);
+        Debug.Log("Removing sentence from queue... Count:"+ sentences.Count);
+        
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
 
     }
 
-    IEnumerator TypeSentence ( string sentence)
+    private IEnumerator TypeSentence ( string sentence)
     {
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
@@ -75,11 +73,12 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-        void EndDialogue()
-        {
-         animator.SetBool("isOpen", false);
-        
-        }
+    private void EndDialogue()
+    {
+        sentences.Clear();
+        animator.SetBool("isOpen", false);
+    
+    }
 
 }
 

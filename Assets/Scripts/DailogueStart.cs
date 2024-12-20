@@ -35,7 +35,7 @@ public class DailogueStart : MonoBehaviour
     {
         dailogueCanvas.SetActive(false);
 
-        dialogueManager.scentenceTracker = 0;
+        
     }
 
     

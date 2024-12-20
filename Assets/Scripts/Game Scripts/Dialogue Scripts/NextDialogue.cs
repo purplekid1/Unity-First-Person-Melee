@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class NextDialogue : MonoBehaviour
 {
-    public DialogueTrigger dialogueTrigger;
+    //public DialogueTrigger dialogueTrigger;
+    public DialogueManager dialogueManager;
     void Start()
     {
-        
+        if (dialogueManager == null)
+        {
+            dialogueManager = FindAnyObjectByType<DialogueManager>();
+        }
     }
 
     // Update is called once per frame
@@ -15,7 +19,8 @@ public class NextDialogue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            dialogueTrigger.TriggerDialogue();
+            dialogueManager.DisplayNextSentence();
+            //dialogueTrigger.TriggerDialogue();
         }
     }
 }
