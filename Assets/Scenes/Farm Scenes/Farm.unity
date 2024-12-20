@@ -1975,7 +1975,7 @@ MonoBehaviour:
   dialogue:
     name: james
     sentences:
-    - 'When i wnat to leave and sleep '
+    - 'When i want to leave and sleep '
     - 'for real it has been a late night '
 --- !u!4 &300738724 stripped
 Transform:
@@ -11719,7 +11719,6 @@ GameObject:
   - component: {fileID: 1724933894}
   - component: {fileID: 1724933893}
   - component: {fileID: 1724933895}
-  - component: {fileID: 1724933896}
   m_Layer: 0
   m_Name: DialogueStart
   m_TagString: Untagged
@@ -11757,7 +11756,7 @@ Transform:
   m_GameObject: {fileID: 1724933892}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.85, y: -292.44, z: 387.331}
+  m_LocalPosition: {x: -84.85, y: -302.908, z: 387.331}
   m_LocalScale: {x: 0.9440559, y: 0.9440559, z: 0.9440559}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11776,26 +11775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dailogueCanvas: {fileID: 292353766}
-  playerController: {fileID: 1469276547}
   dialogueTrigger: {fileID: 292353772}
   dialogueManager: {fileID: 1788420522}
-  cam: {fileID: 2116314896}
---- !u!114 &1724933896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724933892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2560422645cd28c4a9bad819814f73c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  lockPosition: {fileID: 2116314891}
-  isCameraLocked: 0
-  playerController: {fileID: 1469276547}
 --- !u!1001 &1732472820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13947,12 +13928,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!20 &2116314896 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3385553396981548179, guid: fbf26e17b28ec154c8ff87c571735899,
-    type: 3}
-  m_PrefabInstance: {fileID: 1076876024}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2138498743
 PrefabInstance:
   m_ObjectHideFlags: 0

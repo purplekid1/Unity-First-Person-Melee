@@ -7,13 +7,11 @@ public class DailogueStart : MonoBehaviour
 {
     [SerializeField] public GameObject dailogueCanvas;
 
-    public PlayerController playerController;
 
     public DialogueTrigger dialogueTrigger;
 
     public DialogueManager dialogueManager;
 
-    public Camera cam;
 
    
 
@@ -23,8 +21,7 @@ public class DailogueStart : MonoBehaviour
         {
             dailogueCanvas.SetActive(true);
             
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            
             dialogueTrigger.TriggerDialogue();
            
 
@@ -37,9 +34,8 @@ public class DailogueStart : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         dailogueCanvas.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        
+
+        dialogueManager.scentenceTracker = 0;
     }
 
     
